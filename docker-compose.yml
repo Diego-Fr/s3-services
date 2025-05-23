@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: s3_services
+    environment:
+      - NODE_ENV=production
+    working_dir: /app
+    command: ["node", "./index.js"]
+    restart: unless-stopped
+    networks:
+      - s3_services_network
+
+networks:
+  s3_services_network:
+    driver: bridge
