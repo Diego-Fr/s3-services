@@ -15,3 +15,7 @@ services:
 networks:
   s3_services_network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.110.0.0/16
+    
